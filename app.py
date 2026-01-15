@@ -4,26 +4,27 @@ import pandas as pd
 st.title("📊 Любими неща – класна анкета")
 
 # Инициализация на данните
-if "colors" not in st.session_state:
-    st.session_state.colors = {
-        "Червен": 0,
-        "Син": 0,
-        "Зелен": 0,
-        "Жълт": 0
+if "uchenici" not in st.session_state:
+    st.session_state.uchenici = {
+        "Иванка": 0,
+        "Никол": 0,
+        "Ивайло": 0,
+        "Алекс": 0
     }
 
-if "sports" not in st.session_state:
-    st.session_state.sports = {
-        "Футбол": 0,
-        "Баскетбол": 0,
-        "Волейбол": 0,
-        "Плуване": 0
+if "ucenki" not in st.session_state:
+    st.session_state.ucenki = {
+        "6": 0,
+        "5": 0,
+        "4": 0,
+        "3": 0,
+        "2": 0
     }
 
-st.subheader("Избери любими неща")
+st.subheader("Избери ученик и оценка")
 
-color = st.selectbox("Любим цвят:", list(st.session_state.colors.keys()))
-sport = st.selectbox("Любим спорт:", list(st.session_state.sports.keys()))
+uchenik = st.selectbox("Ученик:", list(st.session_state.uchenici.keys()))
+ucenki = st.selectbox("Оценка:", list(st.session_state.ucenki.keys()))
 
 if st.button("Запази избора"):
     st.session_state.colors[color] += 1
@@ -35,15 +36,15 @@ st.divider()
 st.subheader("📈 Резултати")
 
 # Графика за цветовете
-st.write("Любими цветове")
-colors_df = pd.DataFrame.from_dict(
+st.write("Ученици")
+uchenici_df = pd.DataFrame.from_dict(
     st.session_state.colors, orient="index", columns=["Брой"]
 )
-st.bar_chart(colors_df)
+st.bar_chart(uchenici_df)
 
 # Графика за спортовете
-st.write("Любими спортове")
-sports_df = pd.DataFrame.from_dict(
+st.write("Оценки")
+ucenki_df = pd.DataFrame.from_dict(
     st.session_state.sports, orient="index", columns=["Брой"]
 )
-st.bar_chart(sports_df)
+st.bar_chart(ucenki_df)
