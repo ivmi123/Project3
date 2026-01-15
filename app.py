@@ -27,7 +27,7 @@ uchenik = st.selectbox("Ученик:", list(st.session_state.uchenici.keys()))
 ucenki = st.selectbox("Оценка:", list(st.session_state.ucenki.keys()))
 
 if st.button("Запази избора"):
-    st.session_state.uchenici[uchenici] += 1
+    st.session_state.uchenici[uchenik] += 1
     st.session_state.ucenki[ucenki] += 1
     st.success("Изборът е записан!")
 
