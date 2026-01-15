@@ -38,13 +38,13 @@ st.subheader("📈 Резултати")
 # Графика за цветовете
 st.write("Ученици")
 uchenici_df = pd.DataFrame.from_dict(
-    st.session_state.colors, orient="index", columns=["Брой"]
+    st.session_state.uchenici, orient="index", columns=["Брой"]
 )
 st.bar_chart(uchenici_df)
 
 # Графика за спортовете
 st.write("Оценки")
 ucenki_df = pd.DataFrame.from_dict(
-    st.session_state.sports, orient="index", columns=["Брой"]
+    st.session_state.ucenki, orient="index", columns=["Брой"]
 )
 st.bar_chart(ucenki_df)
